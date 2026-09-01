@@ -1,4 +1,4 @@
-# Descargador de MP3 de YouTube
+# DOW-MUSIC-MANUEL-DEV
 
 Sistema con interfaz gráfica moderna para descargar audio de videos de YouTube en formato MP3.
 
@@ -102,6 +102,14 @@ Si ya compilaste el proyecto, simplemente ejecuta:
 dist\main.exe
 ```
 
+### Usar el Instalador
+
+Para instalar la aplicación en tu sistema:
+
+```bash
+dist\DOW-MUSIC-MANUEL-DEV_Setup.exe
+```
+
 ### Interfaz de Usuario
 
 #### Modo de Descarga (URL Directa)
@@ -160,10 +168,12 @@ dist\main.exe
 
 ### Compilación Automática (Recomendado)
 
-Usa el script `build.bat`:
+**Opción A: Script PowerShell (Recomendado para Windows)**
 
-```bash
-.\build.bat
+Usa el script `build.ps1`:
+
+```powershell
+.\build.ps1
 ```
 
 Este script:
@@ -173,9 +183,17 @@ Este script:
 - Genera instalador con NSIS (si está disponible)
 - Muestra mensaje de éxito o error
 
+**Opción B: Script Batch (Alternativa)**
+
+Usa el script `build.bat`:
+
+```bash
+.\build.bat
+```
+
 **Archivos generados:**
 - **Ejecutable**: `dist\main.exe` - Ejecutable standalone
-- **Instalador**: `dist\YouTube_MP3_Downloader_Setup.exe` - Instalador profesional con desinstalador
+- **Instalador**: `dist\DOW-MUSIC-MANUEL-DEV_Setup.exe` - Instalador profesional con desinstalador
 
 ### Requisitos para el Instalador
 
@@ -208,12 +226,12 @@ Si ya tienes el ejecutable compilado y quieres generar solo el instalador:
 makensis installer.nsi
 ```
 
-El instalador se creará en: `dist\YouTube_MP3_Downloader_Setup.exe`
+El instalador se creará en: `dist\DOW-MUSIC-MANUEL-DEV_Setup.exe`
 
 ### Ubicación de los Archivos
 
 - **Ejecutable standalone**: `dist\main.exe`
-- **Instalador**: `dist\YouTube_MP3_Downloader_Setup.exe`
+- **Instalador**: `dist\DOW-MUSIC-MANUEL-DEV_Setup.exe`
 
 ### Diferencias entre Ejecutable e Instalador
 
@@ -223,13 +241,18 @@ El instalador se creará en: `dist\YouTube_MP3_Downloader_Setup.exe`
 - Solo copiar y ejecutar
 - El historial de descargas se crea en el mismo directorio del ejecutable
 
-**Instalador (`YouTube_MP3_Downloader_Setup.exe`):**
-- Instalación profesional con asistente
-- Crea accesos directos en escritorio y menú de inicio
-- Instala en `Program Files`
-- Incluye desinstalador
-- El historial de descargas se crea en `%APPDATA%\YouTube MP3 Downloader`
-- Registro en Panel de Control > Programas y Características
+**Instalador (`DOW-MUSIC-MANUEL-DEV_Setup.exe`):**
+- **Instalación profesional con asistente** - Interfaz moderna con páginas de bienvenida, licencia y componentes
+- **Verificación de requisitos** - Comprueba Windows 10+
+- **Detección de instalación previa** - Ofrece desinstalar versiones anteriores automáticamente
+- **Accesos directos** - Crea accesos directos en escritorio y menú de inicio
+- **Instalación en Program Files** - Ubicación estándar de Windows
+- **Desinstalador completo** - Incluye desinstalador con opción de conservar datos de usuario
+- **Registro en Panel de Control** - Aparece en Programas y Características
+- **Opción de ejecutar al finalizar** - Permite ejecutar la aplicación inmediatamente después de la instalación
+- **Acceso directo al sitio web** - Enlace directo a la página del proyecto
+- **El historial de descargas se crea en `%APPDATA%\DOW-MUSIC-MANUEL-DEV`**
+- **Icono personalizado** - Utiliza el icono de la aplicación en todo el instalador
 
 ## 🏗️ Arquitectura del Proyecto
 
