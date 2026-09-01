@@ -1,0 +1,8 @@
+yt-dlp
+customtkinter
+imageio-ffmpeg
+Pillow
+pyinstaller
+pygame-ce
+mutagen
+ctkfontawesome[images]
