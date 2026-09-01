@@ -158,7 +158,7 @@ dist\main.exe
 
 ## 🔨 Compilación
 
-### Compilación Automática
+### Compilación Automática (Recomendado)
 
 Usa el script `build.bat`:
 
@@ -170,11 +170,25 @@ Este script:
 - Borra el ejecutable anterior si existe
 - Borra el directorio build anterior si existe
 - Compila con PyInstaller
+- Genera instalador con NSIS (si está disponible)
 - Muestra mensaje de éxito o error
 
-### Compilación Manual
+**Archivos generados:**
+- **Ejecutable**: `dist\main.exe` - Ejecutable standalone
+- **Instalador**: `dist\YouTube_MP3_Downloader_Setup.exe` - Instalador profesional con desinstalador
 
-Si prefieres compilar manualmente:
+### Requisitos para el Instalador
+
+Para generar el instalador, necesitas tener NSIS instalado:
+1. Descarga NSIS desde: https://nsis.sourceforge.io/Download
+2. Instala NSIS en tu sistema
+3. Asegúrate de que `makensis` esté en el PATH del sistema
+
+Si NSIS no está disponible, el script solo generará el ejecutable standalone.
+
+### Compilación Manual (Solo Ejecutable)
+
+Si prefieres compilar solo el ejecutable manualmente:
 
 ```bash
 .venv\Scripts\pyinstaller.exe --onefile --windowed --icon=icon.ico --add-data "icon.ico;." --add-data "logo.png;." --add-data "src;src" main.py
@@ -186,9 +200,36 @@ Si prefieres compilar manualmente:
 - `--icon=icon.ico`: Establece el icono del ejecutable
 - `--add-data`: Incluye archivos necesarios (icono, logo, código fuente)
 
-### Archivo de Salida
+### Generación Manual del Instalador
 
-El ejecutable se crea en: `dist\main.exe`
+Si ya tienes el ejecutable compilado y quieres generar solo el instalador:
+
+```bash
+makensis installer.nsi
+```
+
+El instalador se creará en: `dist\YouTube_MP3_Downloader_Setup.exe`
+
+### Ubicación de los Archivos
+
+- **Ejecutable standalone**: `dist\main.exe`
+- **Instalador**: `dist\YouTube_MP3_Downloader_Setup.exe`
+
+### Diferencias entre Ejecutable e Instalador
+
+**Ejecutable Standalone (`main.exe`):**
+- Archivo único, portable
+- No requiere instalación
+- Solo copiar y ejecutar
+- El historial de descargas se crea en el mismo directorio del ejecutable
+
+**Instalador (`YouTube_MP3_Downloader_Setup.exe`):**
+- Instalación profesional con asistente
+- Crea accesos directos en escritorio y menú de inicio
+- Instala en `Program Files`
+- Incluye desinstalador
+- El historial de descargas se crea en `%APPDATA%\YouTube MP3 Downloader`
+- Registro en Panel de Control > Programas y Características
 
 ## 🏗️ Arquitectura del Proyecto
 
